@@ -5,16 +5,22 @@ public class PayBean {
 //	bean 클래스라면 멤버필드, 멤버메소드
 	
 	//멤버필드
-	private String name = "";
-	private int pay, tax, realpay;
+	private String name;
+	private int pay;
 	
 	//멤머메소드 영역이
 	
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getName() {
+		return name;
+	}
 	public void setPay(int pay) {
 		this.pay = pay;
+	}
+	public int getPay() {
+		return pay;
 	}
 	public int getTax() {
 		int tax = 0;

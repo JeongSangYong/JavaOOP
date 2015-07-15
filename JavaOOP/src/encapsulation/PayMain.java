@@ -28,7 +28,8 @@ public class PayMain {
 		PayBean payBean = new PayBean();
 		payBean.setName(name);
 		payBean.setPay(pay);
-
+		
+		System.out.println(payBean.getName()+"님 반갑습니다.");
 		
 		System.out.println(payBean.toString());
 	}
