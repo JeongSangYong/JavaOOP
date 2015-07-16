@@ -5,16 +5,17 @@ package encapsulation;
  * 김유신 : 4
  * 홍길동 승리
  * */
-public class CardGame {
+public class CardGameMe {
 	private String winner, looser;
 	private int winScore, looseScore;
 	
-	public CardGame() {
+	public CardGameMe() {
 		//디폴트 생성자
 	}
 
-	public CardGame(CardBean bean1, CardBean bean2) {
-			
+	public CardGameMe(CardBean bean1, CardBean bean2) {
+		
+		String winner = "";		
 		if( bean1.getCardnum1() > bean2.getCardnum1() ){
 			winner = bean1.getName1();
 			looser = bean2.getName1();
@@ -30,16 +31,17 @@ public class CardGame {
 		else
 			winner = "비김";
 		this.winner = winner;
-		this.looser = looser;
-		this.winScore = winScore;
-		this.looseScore = looseScore;
 		
 	}
-
+	public String getWinner(){
+		return winner+"승리";
+	}
 	
 	@Override
 	public String toString() {
-		return this.winner + ":" + this.winScore +"\n"+this.looser +":"+this.looseScore+"\n"+this.winner+"승리";
+		String str = this.winner + ":" + this.winScore +"\n"+this.looser +":"+this.looseScore+"\n"+this.getWinner();
+		
+		return str;
 	}
 	
 }

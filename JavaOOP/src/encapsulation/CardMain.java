@@ -20,19 +20,15 @@ public class CardMain {
 		 * 홍길동 승리
 		 * */
 		
-		String name1, name2 = "";
-		int cardnum1, cardnum2 = 0, msg=0;
-		
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("이름을 입력하세요");
-		name1 = scanner.next();
+		CardBean hong = new CardBean(scanner.next());
 		System.out.println("이름을 입력하세요");
-		name2 = scanner.next();
+		CardBean kim = new CardBean(scanner.next());	
+			
+		CardGameMe game = new CardGameMe(hong, kim);
 		
-		CardBean hong = new CardBean(name1);
-		CardBean kim = new CardBean(name2);		
-		CardGame game = new CardGame(hong, kim);
-		
-		System.out.println();
+		//System.out.println(game.getWinner());
+		System.out.println(game.toString());
 	}
 }
