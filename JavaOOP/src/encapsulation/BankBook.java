@@ -23,7 +23,7 @@ import abstraction.Account;
  * */
 public class BankBook implements Account{
 	
-	private static String BANK;
+	public static String BANK;
 	private String name;
 	private int money, bankbookNo;
 	private int pass;
