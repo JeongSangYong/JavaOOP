@@ -1,4 +1,4 @@
-package inhebitance;
+package inheritance;
 /*
      객체지향 프로그래밍 언어 4대특징 (2)상속
  - extends라는 키워드로 부모역할을 하는 클래스를 선언하면
