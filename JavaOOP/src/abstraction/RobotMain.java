@@ -20,12 +20,14 @@ public class RobotMain {
 		ShieldRobt shieldRobt = new ShieldRobt();
 		shieldRobt.Shield(20, 20, 50);
 		
-		Robot[] robot = new Robot[2];
-		robot[0] = gunrobot;
-		robot[1] = shieldRobt;
+		Robot[] robots = new Robot[2];
+		robots[0] = gunrobot;
+		robots[1] = shieldRobt;
 		
-		for(Robot robott : robot){
-			robott.status();
+		for(Robot robot : robots){
+			robot.status();
 		}
+		
+
 	}
 }

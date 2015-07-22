@@ -1,17 +1,17 @@
 package abstraction;
 
 public class ShieldRobt extends BasicBot{
-	private int Shield;
+	private int shieldPint;
 	
-	public void Shield(int energy, int speed, int Shield)
+	public void Shield(int energy, int speed, int shieldPint)
 	{
 		super.charge(energy);
 		super.run(speed);
-		this.Shield = Shield;
+		this.shieldPint = shieldPint;
 	}
 	
 	public void status(){
 		super.status();
-		System.out.println("로봇 방어력 : " +this.Shield);
+		System.out.println("로봇 방어력 : " +this.shieldPint);
 	}
 }
