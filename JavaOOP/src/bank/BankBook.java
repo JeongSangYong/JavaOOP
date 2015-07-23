@@ -1,6 +1,6 @@
 package bank;
 
-public class BankBook implements Account{
+public class BankBook {
 
 	public static String BANK;
 	private String name;
@@ -33,6 +33,31 @@ public class BankBook implements Account{
 	public int getPass() {
 		return pass;
 	}
+	
+	public String getMsg() {
+		return msg;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+
+	public void setBankbookNo(int bankbookNo) {
+		this.bankbookNo = bankbookNo;
+	}
+
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
 
 	public void setPass(int pass) {
 		this.pass = pass;
@@ -46,7 +71,7 @@ public class BankBook implements Account{
 	}*/
 
 	//getter setter 단축키 : alt + shitf + s
-	public String toString() {
+	public String showAccount() {
 		
 		return "=================\n"
 				+ "["+BANK+"]\n"
@@ -56,8 +81,6 @@ public class BankBook implements Account{
 				+ "=================";
 	}
 
-
-	@Override
 	public void withdraw(int money) {
 		// 파라미터 값이 정상값이 아닌 상태를 추적해서
 		// 필터링 하는 로직이 필요
@@ -71,7 +94,6 @@ public class BankBook implements Account{
 			this.money -= money;
 	}
 
-	@Override
 	public void deposit(int money) {
 		if(money <= 0)
 			msg = "입금액은 0보다 커야합니다.";
