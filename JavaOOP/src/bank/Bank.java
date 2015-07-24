@@ -72,20 +72,23 @@ public class Bank implements BankRole{
 	//계좌검색(이름으로검색) -> 리턴결과 : 1개이상
 	@Override
 	public BankBook[] searchAccountByName(String ownerName) {
-		BankBook[] accounts = null;
+		//BankBook[] accounts = null;
 		//searchAccountByName()메소드를 호출하면
 		//자동으로 searchCountByName()메소드를 먼서 호출하라
-		int tempcount = this.searchCountByName(ownerName);
-		if (tempcount ==0 ) {//조회하는 사람의 통장이 존재x
-			return null;			
+		int tempCount = this.searchCountByName(ownerName);
+		if(tempCount == 0){
+			return null;
 		}
-		for (int i = 0; i < this.count; i++) {
-			if (bankBookList[i].getName().equals(ownerName)) {
-				accounts[tempcount] = bankBookList[i];
-				count++;
-			}			
+		BankBook[] accounts = new BankBook[tempCount];
+		tempCount = 0;
+		
+		for(int i = 0; i < accounts.length; i++){
+			if (bankBookList[i].getName().equals(ownerName)){
+				accounts[tempCount] = bankBookList[i];
+				tempCount++;				
+			}
 		}
-		return accounts;
+		return accounts;		
 	}
 	
 	//계좌검색(이름으로검색) -> 리턴결과 : 숫자
@@ -107,15 +110,19 @@ public class Bank implements BankRole{
 	public boolean closeAccount(String accountNo) {
 		//flag은 삭제가 성공적으로 이뤄주면 true를 리턴하고
 		//삭제할게 없으면 false를 리턴
-		boolean flag = false;
+		boolean closeOk = false;
 		
 		//String(a문자열)로 들어온 값을 숫자로 바꿔서 비교
+		BankBook bankBook = this.searchAccountByAccountNo(accountNo);
+		if(bankBook == null){
+			System.out.println("해당 계좌가 존재하지 않습니다.");
+			return closeOk;			
+		}
 		int searchAccountNo = Integer.parseInt(accountNo);
-		
-		
+				
 		for (int i = 0; i < this.count; i++) {
 			if(bankBookList[i].getBankbookNo()==searchAccountNo){
-				flag = true;
+				
 				/*
 				 * j = 1 인 이유는 홍길동의 걔좌가 은행 전체계와의 50번째라면
 				 * 내부 for문에서 다시 처음 0부터 회전하지 않고 
@@ -128,8 +135,9 @@ public class Bank implements BankRole{
 					bankBookList[i] = bankBookList[j+1];
 				}
 				count--;
+				closeOk = true;
 			}
 		}
-		return flag;
+		return closeOk;
 	}
 }
